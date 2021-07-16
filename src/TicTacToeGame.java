@@ -13,7 +13,7 @@ public class TicTacToeGame {
 		}	
 	}
 	public static void main(String[] args) {
-//		TicTacToeGame tictactoegame = new TicTacToeGame();
+		TicTacToeGame tictactoegame = new TicTacToeGame();
 
 	}
 
