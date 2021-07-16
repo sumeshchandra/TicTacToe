@@ -1,43 +1,54 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class TicTacToeGame {
 
-	public static void main(String[] args) {
-		/*Printing Welcome message*/
-		System.out.println("Welcome to Tic Tac Toe Game");
-		System.out.println("Choose a letter o or x : ");
-		Scanner s = new Scanner(System.in);
-		char letter = s.next().charAt(0);
-		char Choice;
-		chooseLetter(letter);
-		Board();
+	static char[] board = new char[10];
+	static char playerOption,computerOption;
+	public static Scanner scanner = new Scanner(System.in);
+
+	public static void main(String[] args)
+        {
+		getBoard();
+		getPlayerChoice();
+		currentBoard();
 	}
 
-	/*Creating Board method()...
-	 * under which ther is two for loops for creating  array*/
-	public static void Board() {
-		char[] board = new char[10];
-		for (int i = 1; i <= 3; i++) {
-			for (int j = 1; j <= 3; j++) {
-				System.out.print('_');
-				System.out.print('|');
-			}
-			System.out.println();
-		}
-	}
+	 static void getBoard() //method for board
+         {
+		 for (int i = 0; i < 10; i++) 
+                 {
+			 board[i] = ' ';
+		 }
+	 }
 
-	public static void chooseLetter(char letter) {
-		switch (letter) {
-			case 'o':
-				System.out.println("player entered letter: o");
-				System.out.println("computer choice is: x");
-				break;
-			case 'x':
-				System.out.println("player entered letter: x");
-				System.out.println("computer choice is: o");
-				break;
-		}
-	}
+	 static void getPlayerChoice() //Method to choose the option
+         {
+		 System.out.print("Choose an Option x or o : ");
+		 playerOption = scanner.next().charAt(0);
+		 if (playerOption == 'x')
+			 computerOption='o';
+		 else
+			 computerOption ='x';
+		 System.out.println("You Selected : " +playerOption);
+	 }
+	 static void showBoard()//Method for print the board
+         {
+	        System.out.println("  " + board[1] + "  |  " + board[2]  + "   | " + board[3] + "  ");
+	        System.out.println(".....|......|.....");
+	        System.out.println("  " + board[4] + "  |  " + board[5]  + "   | " + board[6] + "  ");
+	        System.out.println(".....|......|.....");
+	        System.out.println("  " + board[7] + "  |  " + board[8]  + "   | " + board[9] + "  ");
+	 }
+	 private static void currentBoard()
+         {
+	        int RADIX = 10;
+	        System.out.println("\n");
+	        for( int i=1; i<10; i++)
+                {
+	            if (board[i] !='x'&&board[i] !='o')
+	                board[i] = Character.forDigit(i, RADIX);
+	        }
 
-
+	        showBoard(); //call showboard method
+	  }
 }
