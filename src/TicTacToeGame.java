@@ -12,6 +12,7 @@ public class TicTacToeGame {
 		getPlayerChoice();
 		currentBoard();
 		userMove();
+		desiredMove();
 	}
 
 	 static void getBoard() //method for board
@@ -64,6 +65,19 @@ public class TicTacToeGame {
 		}
 		// calling currrent board method
 		currentBoard();
+	}
 
+	static void desiredMove()
+	{
+		System.out.println("\nSelect the cell from 1 to 9 : ");
+		int userChoice = scanner.nextInt();
+		if (board[userChoice] != 'x' && board[userChoice] != '0')
+		{
+			board[userChoice] = playerOption;
+		} else {
+			System.out.println("Invalid Input");
+		}
+		currentBoard(); // calling current boad method
+		userMove(); // calling user move method
 	}
 }
